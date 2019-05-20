@@ -4,8 +4,10 @@
   "description": "A storybook of react-intl components.",
   "version": "0.0.0",
   "devDependencies": {
+    "@storybook/addon-knobs": "^5.0.11",
     "@storybook/react": "^5.0.11",
     "@types/react-intl": "^2.3.17",
+    "@types/storybook__addon-knobs": "^5.0.0",
     "@types/storybook__react": "^4.0.1",
     "@types/webpack": "^4.4.31",
     "awesome-typescript-loader": "^5.2.1",
