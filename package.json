@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "name": "react-intl-storybook",
+  "description": "A storybook of react-intl components.",
+  "version": "0.0.0"
+}
