@@ -2,5 +2,20 @@
   "private": true,
   "name": "react-intl-storybook",
   "description": "A storybook of react-intl components.",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "devDependencies": {
+    "@storybook/react": "^5.0.11",
+    "@types/react-intl": "^2.3.17",
+    "@types/storybook__react": "^4.0.1",
+    "@types/webpack": "^4.4.31",
+    "awesome-typescript-loader": "^5.2.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-intl": "^2.9.0",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
+  },
+  "scripts": {
+    "start": "start-storybook -c storybook -p 9004"
+  }
 }
