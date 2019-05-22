@@ -1,3 +1,4 @@
+import { action } from "@storybook/addon-actions";
 import { date, select } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
@@ -87,7 +88,6 @@ storiesOf("Provider", module)
 
     return (
       <IntlProvider
-        defaultLocale="en"
         locale={select("Parent Locale", localeOptions, localeOptions[0])}
       >
         <>
@@ -98,7 +98,6 @@ storiesOf("Provider", module)
             value={value}
           />
           <IntlProvider
-            defaultLocale="en"
             locale={select("Child Locale", localeOptions, localeOptions[1])}
           >
             <>
@@ -116,8 +115,7 @@ storiesOf("Provider", module)
   })
   .add("errors", () => (
     <IntlProvider
-      defaultLocale="en"
-      onError={(error) => alert(error)}
+      onError={action("Error")}
     >
       <FormattedMessage
         id="message"
