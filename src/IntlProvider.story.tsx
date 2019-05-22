@@ -3,27 +3,7 @@ import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { IntlProvider, FormattedDate, FormattedMessage, FormattedNumber, FormattedTime, FormattedRelative } from "react-intl";
 
-declare global {
-  interface Navigator {
-    userLanguage: string;
-  }
-}
-
-const defaultValue = new Date();
-
-const messages: { [locale: string]: {} } = {
-  en: {
-    hello: "Hello!",
-  },
-  pl: {
-    hello: "Cześć!",
-  },
-  fr: {
-    hello: "Salut!",
-  },
-};
-
-const localeOptions = Object.keys(messages);
+import { defaultDateValue, defaultMessages, defaultNumberValue, localeOptions, getEnvLocale } from "./stories";
 
 storiesOf("Provider", module)
   .add("default", () => {
@@ -32,35 +12,26 @@ storiesOf("Provider", module)
     return (
       <IntlProvider
         locale={locale}
-        messages={messages[locale] || messages.en}
+        messages={defaultMessages[locale] || defaultMessages.en}
       >
         <>
           <h1>
             Dates
           </h1>
           <p>
-            Date:{" "}
-            <FormattedDate
-              value={defaultValue}
-            />
+            Date: <FormattedDate value={defaultDateValue} />
           </p>
           <p>
-            Time:{" "}
-            <FormattedTime
-              value={defaultValue}
-            />
+            Time: <FormattedTime value={defaultDateValue} />
           </p>
           <p>
-            Relative:{" "}
-            <FormattedRelative
-              value={defaultValue}
-            />
+            Relative: <FormattedRelative value={defaultDateValue} />
           </p>
           <h1>
             Numbers
           </h1>
           <FormattedNumber
-            value={1234567890.1234}
+            value={defaultNumberValue}
           />
           <h1>
             Messages
@@ -73,18 +44,13 @@ storiesOf("Provider", module)
     );
   })
   .add("user locale", () => {
-    const locale = (
-      (navigator.languages && navigator.languages[0]) ||
-      navigator.language ||
-      navigator.userLanguage ||
-      "en"
-    ).substr(0, 2);
+    const locale = getEnvLocale();
 
     return (
       <IntlProvider
         defaultLocale="en"
         locale={locale}
-        messages={messages[locale] || messages.en}
+        messages={defaultMessages[locale] || defaultMessages.en}
       >
         <>
           <h1>
@@ -98,7 +64,7 @@ storiesOf("Provider", module)
     );
   })
   .add("text component", () => {
-    const Component = (props: { children: React.ReactNode }) => (
+    const Component: React.SFC = (props) => (
       <b>
         {props.children}
       </b>
@@ -117,7 +83,7 @@ storiesOf("Provider", module)
     );
   })
   .add("nesting", () => {
-    const value = date("Value", defaultValue);
+    const value = date("Value", defaultDateValue);
 
     return (
       <IntlProvider

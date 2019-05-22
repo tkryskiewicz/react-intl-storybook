@@ -15,12 +15,15 @@ export default async ({ config }: { config: Webpack.Configuration }) => {
       ],
     },
     {
-      test: /\.tsx$/,
+      test: /\.tsx?$/,
       use: "awesome-typescript-loader",
     },
   );
 
-  config.resolve!.extensions!.push(".tsx");
+  config.resolve!.extensions!.push(
+    ".tsx",
+    ".ts",
+  );
 
   return config;
 }
