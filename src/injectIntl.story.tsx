@@ -5,7 +5,7 @@ import { IntlProvider, injectIntl, InjectedIntl } from "react-intl";
 
 import { defaultDateValue, defaultNumberValue, localeOptions, defaultMessages } from "./stories";
 
-storiesOf("injectIntl", module)
+storiesOf("API & Provider|injectIntl", module)
   .add("default", () => {
     const Component = injectIntl((props) => {
       const { intl } = props;

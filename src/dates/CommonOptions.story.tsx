@@ -74,7 +74,7 @@ const timeZoneOptions: NonNullable<Intl.DateTimeFormatOptions["timeZone"]>[] = [
   "America/Chicago",
 ];
 
-storiesOf("Date Formatting", module)
+storiesOf("Date Formatting|common", module)
   .addDecorator((story) => (
     <IntlProvider
       locale="en"

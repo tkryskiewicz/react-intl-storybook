@@ -25,7 +25,7 @@ const currencyDisplayOptions: NonNullable<Intl.NumberFormatOptions["currencyDisp
   "name",
 ];
 
-storiesOf("Number Formatting", module)
+storiesOf("Number Formatting|common", module)
   .addDecorator((story) => (
     <IntlProvider
       locale="en"

@@ -6,7 +6,7 @@ import { IntlProvider, FormattedDate, FormattedMessage, FormattedNumber, Formatt
 
 import { defaultDateValue, defaultMessages, defaultNumberValue, localeOptions, getEnvLocale } from "./stories";
 
-storiesOf("Provider", module)
+storiesOf("API & Provider|IntlProvider", module)
   .add("default", () => {
     const locale = select("Locale", localeOptions, localeOptions[0]);
 
@@ -47,11 +47,13 @@ storiesOf("Provider", module)
   .add("user locale", () => {
     const locale = getEnvLocale();
 
+    const localeLanguage = locale.substr(0, 2);
+
     return (
       <IntlProvider
         defaultLocale="en"
-        locale={locale}
-        messages={defaultMessages[locale] || defaultMessages.en}
+        locale={localeLanguage}
+        messages={defaultMessages[localeLanguage] || defaultMessages.en}
       >
         <>
           <h1>
@@ -86,11 +88,17 @@ storiesOf("Provider", module)
   .add("nesting", () => {
     const value = date("Value", defaultDateValue);
 
+    const Wrapper: React.SFC = (props) => (
+      <div style={{ border: "1px solid #000", margin: 10, padding: 10 }}>
+        {props.children}
+      </div>
+    );
+
     return (
       <IntlProvider
         locale={select("Parent Locale", localeOptions, localeOptions[0])}
       >
-        <>
+        <Wrapper>
           <h1>
             Parent:
           </h1>
@@ -100,16 +108,16 @@ storiesOf("Provider", module)
           <IntlProvider
             locale={select("Child Locale", localeOptions, localeOptions[1])}
           >
-            <>
+            <Wrapper>
               <h2>
                 Child:
               </h2>
               <FormattedDate
                 value={value}
               />
-            </>
+            </Wrapper>
           </IntlProvider>
-        </>
+        </Wrapper>
       </IntlProvider>
     );
   })

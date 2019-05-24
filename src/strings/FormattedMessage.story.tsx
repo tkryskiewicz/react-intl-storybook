@@ -17,7 +17,7 @@ const tagNameOptions: any[] = [
   "code",
 ];
 
-storiesOf("String Formatting/FormattedMessage", module)
+storiesOf("String Formatting|FormattedMessage", module)
   .addDecorator((story) => (
     <IntlProvider
       locale="en"

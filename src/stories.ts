@@ -26,5 +26,5 @@ export const getEnvLocale = () => (
   (navigator.languages && navigator.languages[0]) ||
   navigator.language ||
   navigator.userLanguage ||
-  localeOptions[0]
-).substr(0, 2);
+  "en-US"
+);

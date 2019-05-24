@@ -21,7 +21,7 @@ const styleOptions: NonNullable<FormattedRelative.Props["style"]>[] = [
   "numeric",
 ];
 
-storiesOf("Date Formatting/FormattedRelative", module)
+storiesOf("Date Formatting|FormattedRelative", module)
   .addDecorator((story) => (
     <IntlProvider
       locale="en"

@@ -6,7 +6,7 @@ const messages = {
   helloMessage: "<b>Hello</b>",
 };
 
-storiesOf("String Formatting/FormattedHTMLMessage", module)
+storiesOf("String Formatting|FormattedHTMLMessage", module)
   .addDecorator((story) => (
     <IntlProvider
       locale="en"

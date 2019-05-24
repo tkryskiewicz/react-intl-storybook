@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { FormattedNumber, IntlProvider } from "react-intl";
 
-storiesOf("Number Formatting/FormattedNumber", module)
+storiesOf("Number Formatting|FormattedNumber", module)
   .addDecorator((story) => (
     <IntlProvider
       locale="en"

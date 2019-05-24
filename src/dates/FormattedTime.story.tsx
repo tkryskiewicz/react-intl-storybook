@@ -5,7 +5,7 @@ import { FormattedTime, IntlProvider } from "react-intl";
 
 const defaultValue = new Date();
 
-storiesOf("Date Formatting/FormattedTime", module)
+storiesOf("Date Formatting|FormattedTime", module)
   .addDecorator((story) => (
     <IntlProvider
       locale="en"
