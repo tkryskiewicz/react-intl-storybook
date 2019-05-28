@@ -4,6 +4,8 @@
   "description": "A storybook of react-intl components.",
   "version": "0.0.0",
   "devDependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-knobs": "^5.0.11",
     "@storybook/addon-storysource": "^5.0.11",
@@ -14,13 +16,17 @@
     "@types/storybook__react": "^4.0.1",
     "@types/webpack": "^4.4.31",
     "awesome-typescript-loader": "^5.2.1",
+    "babel-plugin-react-intl": "^3.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-intl": "^2.9.0",
     "ts-node": "^8.1.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.4.5",
+    "webpack-cli": "^3.3.2"
   },
   "scripts": {
+    "build": "webpack",
+    "clean": "rm -rf dist",
     "start": "start-storybook -c storybook -p 9004"
   }
 }
