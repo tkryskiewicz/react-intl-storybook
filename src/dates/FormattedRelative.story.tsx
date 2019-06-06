@@ -16,8 +16,7 @@ const unitsOptions: NonNullable<FormattedRelative.Props["units"]>[] = [
 ];
 
 const styleOptions: NonNullable<FormattedRelative.Props["style"]>[] = [
-  // NOTE: FormattedRelative prop types require "best fit", but typings require "best-fit"
-  "best fit" as "best-fit",
+  "best fit",
   "numeric",
 ];
 
